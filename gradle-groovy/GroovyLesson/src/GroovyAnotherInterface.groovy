@@ -1,0 +1,3 @@
+interface GroovyAnotherInterface{
+	void displayAnotherInterfaceInfo();
+}
