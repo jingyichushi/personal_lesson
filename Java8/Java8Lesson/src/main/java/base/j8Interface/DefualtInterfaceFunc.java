@@ -1,4 +1,4 @@
-package base.default_interface_func;
+package base.j8Interface;
 
 import static base.Util.*;
 
