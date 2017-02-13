@@ -1,8 +1,10 @@
+import com.sun.tools.javac.util.StringUtils;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableEmitter;
 import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import org.junit.Assert;
 import org.junit.Test;
 import org.reactivestreams.Subscriber;
@@ -102,5 +104,55 @@ public class ResearchRxTest {
         Flowable.just("hello RxJava 2").subscribe(str->{
             System.out.println(str);
         });
+    }
+
+
+    /**
+     * 操作符是为了解决 Flowable 对象变换问题而设计的，
+     * 操作符可以在传递的途中对数据进行修改
+     */
+    @Test
+    public void mapOperatorRx(){
+        Flowable.just("map")
+                .map(new Function<String, String>() {
+                    @Override
+                    public String apply(String s) throws Exception {
+                        return StringUtils.toUpperCase(s);
+                    }
+                })
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        Assert.assertEquals(s,"MAP");
+                    }
+                });
+    }
+
+    /**
+     * map 操作符更神奇的地方是，你可以返回任意类型的 Flowable，
+     * 也就是说你可以使用 map 操作符发射一个新的数据类型的 Flowable 对象。
+     */
+    @Test
+    public void moreComplexMapOperatorRx(){
+
+        Flowable.just("map1")
+                .map(new Function<String, Integer>() {
+                    @Override
+                    public Integer apply(String s) throws Exception {
+                        return s.hashCode();
+                    }
+                })
+                .map(new Function<Integer, String>() {
+                    @Override
+                    public String apply(Integer integer) throws Exception {
+                        return integer.toString();
+                    }
+                })
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        Assert.assertEquals(s,String.valueOf("map1".hashCode()));
+                    }
+                });
     }
 }
