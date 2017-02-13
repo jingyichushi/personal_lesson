@@ -65,5 +65,42 @@ public class ResearchRxTest {
         //组装
         flowable.subscribe(subscriber);
     }
-    
+
+
+    /**
+     * RxJava的极简使用方式
+     * Flowable.just 和 Consumer
+     */
+    @Test
+    public void simplestRx(){
+
+        //1.可以用just传入生成一到九个同类型的Object快速创建Flowable”发射器”
+        Flowable<String> flowable = Flowable.just("hello RxJava 2");
+
+        //2.Consumer是仅仅关系onNext方法的Subscriber"接收器"
+        Consumer consumer = new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                System.out.println(s);
+                Assert.assertEquals(s,"hello RxJava 2");
+            }
+        };
+
+        //组装
+        flowable.subscribe(consumer);
+
+
+        //简化
+        Flowable.just("hello RxJava 2").subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                System.out.println(s);
+            }
+        });
+
+        //极简
+        Flowable.just("hello RxJava 2").subscribe(str->{
+            System.out.println(str);
+        });
+    }
 }
