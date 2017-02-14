@@ -82,14 +82,14 @@
       <file leaf-file-name="ResearchRxTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ResearchRxTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="209" column="23" lean-forward="false" selection-start-line="209" selection-start-column="16" selection-end-line="209" selection-end-column="23" />
+            <state relative-caret-position="-390">
+              <caret line="233" column="37" lean-forward="false" selection-start-line="233" selection-start-column="37" selection-end-line="233" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1529#1530#0" expanded="true" />
-                <element signature="e#1582#1583#0" expanded="true" />
-                <element signature="e#1729#1730#0" expanded="true" />
-                <element signature="e#1793#1794#0" expanded="true" />
+                <element signature="e#1570#1571#0" expanded="true" />
+                <element signature="e#1623#1624#0" expanded="true" />
+                <element signature="e#1770#1771#0" expanded="true" />
+                <element signature="e#1834#1835#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -601,28 +601,7 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="extract.method.default.visibility" value="private" />
   </component>
-  <component name="RunManager" selected="JUnit.ResearchRxTest.flatMap">
-    <configuration default="false" name="ResearchRxTest.simplestRx" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="RxJava_test" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ResearchRxTest" />
-      <option name="METHOD_NAME" value="simplestRx" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.ResearchRxTest">
     <configuration default="false" name="ResearchRxTest.mapOperatorRx" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="RxJava_test" />
@@ -695,6 +674,27 @@
       <option name="MAIN_CLASS_NAME" value="ResearchRxTest" />
       <option name="METHOD_NAME" value="flatMap" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ResearchRxTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="RxJava_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ResearchRxTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -1040,19 +1040,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.simplestRx" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.mapOperatorRx" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.moreComplexMapOperatorRx" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.listOperatorRx" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.flatMap" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.mapOperatorRx" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.moreComplexMapOperatorRx" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.listOperatorRx" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.flatMap" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ResearchRxTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.flatMap" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.listOperatorRx" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.moreComplexMapOperatorRx" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.mapOperatorRx" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.simplestRx" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ResearchRxTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.flatMap" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.listOperatorRx" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.moreComplexMapOperatorRx" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.ResearchRxTest.mapOperatorRx" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -1072,11 +1072,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1486992058476</updated>
-      <workItem from="1486992063064" duration="9005000" />
+      <workItem from="1486992063064" duration="9276000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="ResearchRxTest - 2017.02.14 at 22h 37m 32s.xml">
+      <configuration name="ResearchRxTest" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="ResearchRxTest_flatMap - 2017.02.14 at 22h 27m 12s.xml">
       <configuration name="ResearchRxTest.flatMap" configurationId="JUnit" />
     </history-entry>
@@ -1097,7 +1100,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9005000" />
+    <option name="totallyTimeSpent" value="9276000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1023" extended-state="0" />
@@ -1257,14 +1260,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ResearchRxTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="209" column="23" lean-forward="false" selection-start-line="209" selection-start-column="16" selection-end-line="209" selection-end-column="23" />
+        <state relative-caret-position="-390">
+          <caret line="233" column="37" lean-forward="false" selection-start-line="233" selection-start-column="37" selection-end-line="233" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1529#1530#0" expanded="true" />
-            <element signature="e#1582#1583#0" expanded="true" />
-            <element signature="e#1729#1730#0" expanded="true" />
-            <element signature="e#1793#1794#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+            <element signature="e#1623#1624#0" expanded="true" />
+            <element signature="e#1770#1771#0" expanded="true" />
+            <element signature="e#1834#1835#0" expanded="true" />
           </folding>
         </state>
       </provider>

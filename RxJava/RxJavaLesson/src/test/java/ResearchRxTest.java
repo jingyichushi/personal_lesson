@@ -2,6 +2,7 @@ import com.sun.tools.javac.util.StringUtils;
 import io.reactivex.*;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
+import io.reactivex.functions.Predicate;
 import org.junit.Assert;
 import org.junit.Test;
 import org.reactivestreams.Publisher;
@@ -218,6 +219,64 @@ public class ResearchRxTest {
                     @Override
                     public Publisher<Integer> apply(List<Integer> integers) throws Exception {
                         return Flowable.fromIterable(integers);
+                    }
+                })
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        System.out.println(integer);
+                    }
+                });
+    }
+
+
+    /**
+     * filter 是用于过滤数据的，返回false表示拦截此数据
+     */
+    @Test
+    public void filter(){
+        Flowable.fromArray(1, 20, 5, 0, -1, 8)
+                .filter(new Predicate<Integer>() {
+                    @Override
+                    public boolean test(Integer integer) throws Exception {
+                        return integer.intValue() > 5;
+                    }
+                })
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        System.out.println(integer);
+                    }
+                });
+    }
+
+
+    /**
+     * take 用于指定订阅者最多收到多少数据
+     */
+    @Test
+    public void take(){
+        Flowable.fromArray(1, 2, 3, 4)
+                .take(2)
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        System.out.println(integer);
+                    }
+                });
+    }
+
+
+    /**
+     * doOnNext 允许我们在每次输出一个元素之前做一些额外的事情，比如记录日志
+     */
+    @Test
+    public void doOnNext(){
+        Flowable.just(1, 2, 3)
+                .doOnNext(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        System.out.println("保存:" + integer);
                     }
                 })
                 .subscribe(new Consumer<Integer>() {
