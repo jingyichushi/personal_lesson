@@ -163,7 +163,7 @@ public class ResearchRxTest {
      * 假设 Flowable 发射的是一个列表，接收者要把列表内容依次输出。
      */
     @Test
-    public void listOperatorRx(){
+    public void fromIterable(){
 
         List<Integer> list = new ArrayList<>();
         list.add(10);
