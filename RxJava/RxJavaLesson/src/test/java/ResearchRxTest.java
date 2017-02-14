@@ -4,6 +4,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import org.junit.Assert;
 import org.junit.Test;
+import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
@@ -198,4 +199,33 @@ public class ResearchRxTest {
 
 
     }
+
+
+    /**
+     * Flowable.flatMap 可以把一个 Flowable 转换成另一个 Flowable
+     * flatMap 返回的是一个 Flowable 对象，可以把从List发射出来的一个
+     * 一个的元素发射出去
+     */
+    @Test
+    public void flatMap(){
+        List<Integer> list = new ArrayList<>();
+        list.add(10);
+        list.add(1);
+        list.add(5);
+
+        Flowable.just(list)
+                .flatMap(new Function<List<Integer>, Publisher<Integer>>() {
+                    @Override
+                    public Publisher<Integer> apply(List<Integer> integers) throws Exception {
+                        return Flowable.fromIterable(integers);
+                    }
+                })
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        System.out.println(integer);
+                    }
+                });
+    }
 }
+
