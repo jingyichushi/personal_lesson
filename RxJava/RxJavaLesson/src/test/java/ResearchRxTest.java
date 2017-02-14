@@ -286,5 +286,66 @@ public class ResearchRxTest {
                     }
                 });
     }
+
+
+    /**
+     * 参数 0 或者 1
+     * @param value
+     */
+    private void handleFinish(int value){
+        Flowable.create(new FlowableOnSubscribe<String>() {
+            @Override
+            public void subscribe(FlowableEmitter<String> e) throws Exception {
+                e.onNext("exception:" + (1 / value));
+                e.onComplete();
+            }
+        }, BackpressureStrategy.BUFFER)
+                .subscribe(new Subscriber<String>() {
+                    @Override
+                    public void onSubscribe(Subscription s) {
+                        s.request(1);
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        System.out.println(s);
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        t.printStackTrace();
+                        System.out.println("onError");
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        System.out.println("on complete");
+                    }
+                });
+    }
+
+
+    /**
+     * 这样的设计有以下几个优点:
+     * 
+     * 只要发生错误，onError()一定会被调用。
+     * 这极大的简化了错误处理。只需要在一个地方处理错误即可以。
+     *
+     * 操作符不需要处理异常。
+     * 将异常处理交给订阅者来做，一旦有调用链中有一个抛出了异常，就会直接执行onError()方法，停止数据传送。
+     *
+     * 你能够知道什么时候订阅者已经接收了全部的数据。
+     */
+
+    @Test
+    public void onError(){
+        handleFinish(0);
+    }
+
+
+    @Test
+    public void onComplete(){
+        handleFinish(1);
+    }
 }
 
