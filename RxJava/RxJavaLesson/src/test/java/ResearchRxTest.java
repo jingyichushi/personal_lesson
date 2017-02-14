@@ -1,8 +1,5 @@
 import com.sun.tools.javac.util.StringUtils;
-import io.reactivex.BackpressureStrategy;
-import io.reactivex.Flowable;
-import io.reactivex.FlowableEmitter;
-import io.reactivex.FlowableOnSubscribe;
+import io.reactivex.*;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import org.junit.Assert;
@@ -10,10 +7,15 @@ import org.junit.Test;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by lrq on 2017/2/14.
  */
 public class ResearchRxTest {
+
+
 
     /**
      * RxJava的一般使用方式
@@ -154,5 +156,46 @@ public class ResearchRxTest {
                         Assert.assertEquals(s,String.valueOf("map1".hashCode()));
                     }
                 });
+    }
+
+    /**
+     * RxJava发射列表时的用法
+     * 假设 Flowable 发射的是一个列表，接收者要把列表内容依次输出。
+     */
+    @Test
+    public void listOperatorRx(){
+
+        List<Integer> list = new ArrayList<>();
+        list.add(10);
+        list.add(1);
+        list.add(5);
+
+        //1th part.一般做法
+        Flowable.just(list)
+                .subscribe(new Consumer<List<Integer>>() {
+                    @Override
+                    public void accept(List<Integer> list) throws Exception {
+                        Assert.assertEquals(3, list.size());
+
+                        Assert.assertEquals(10, list.get(0).intValue());
+                    }
+                });
+
+        //1th part 缺陷：丧失了变化数据流的能力。一旦想要更改列表中的每一个数据，只能
+        //在订阅者中做。当然可以使用map来中间处理，但是这样做也需要遍历整个list。
+
+        //2th part.
+        //RxJava 2.0 提供了fromIterable方法，可以接收一个 Iterable 容器作为输入，每次发射一个元素
+
+        System.out.print("Flowable.fromIterable:\r\n\t");
+        Flowable.fromIterable(list)
+                .subscribe(num -> System.out.println(num));
+
+
+        System.out.print("Observable.fromIterable:\r\n\t");
+        Observable.fromIterable(list)
+                .subscribe(num -> System.out.println(num));
+
+
     }
 }
