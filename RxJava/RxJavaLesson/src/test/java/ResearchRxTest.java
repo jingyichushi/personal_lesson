@@ -3,6 +3,7 @@ import io.reactivex.*;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
+import io.reactivex.schedulers.Schedulers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.reactivestreams.Publisher;
@@ -327,7 +328,7 @@ public class ResearchRxTest {
 
     /**
      * 这样的设计有以下几个优点:
-     * 
+     *
      * 只要发生错误，onError()一定会被调用。
      * 这极大的简化了错误处理。只需要在一个地方处理错误即可以。
      *
@@ -347,5 +348,27 @@ public class ResearchRxTest {
     public void onComplete(){
         handleFinish(1);
     }
+
+
+//    @Test
+//    public void rxJavaOnAndroid(){
+//        Flowable.create(new FlowableOnSubscribe<String>() {
+//            @Override
+//            public void subscribe(FlowableEmitter<String> e) throws Exception {
+//                e.onNext("将会在3秒后显示");
+//                SystemClock.sleep(3000);
+//                e.onNext("ittianyu");
+//                e.onComplete();
+//            }
+//        }, BackpressureStrategy.BUFFER)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Consumer<String>() {
+//                    @Override
+//                    public void accept(String s) throws Exception {
+//                        Toast.makeText(RxJava2Activity.this, s, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//    }
 }
 

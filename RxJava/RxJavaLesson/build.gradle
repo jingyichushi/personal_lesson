@@ -11,5 +11,7 @@ repositories {
 
 dependencies {
     compile "io.reactivex.rxjava2:rxjava:2.0.5"
+    //仅仅在AndroidSDK环境下能够使用
+//    compile 'io.reactivex.rxjava2:rxandroid:2.0.5'
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
